@@ -1,0 +1,33 @@
+{
+    "os": "Windows-10-10.0.22000-SP0",
+    "python": "3.9.12",
+    "heartbeatAt": "2022-11-12T23:39:36.954985",
+    "startedAt": "2022-11-12T23:39:36.582275",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3080 Ti Laptop GPU",
+    "gpu_count": 1,
+    "cpu_count": 20,
+    "cuda": null,
+    "args": [
+        "--gpu",
+        "0",
+        "--dataset",
+        "cifar100",
+        "--network",
+        "better_resnet",
+        "--mode",
+        "human-cifar"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\matsl\\Documents\\shape-adaptor\\model_training.py",
+    "codePath": "model_training.py",
+    "git": {
+        "remote": "https://github.com/lorenmt/shape-adaptor.git",
+        "commit": "9e220496c1b84291724055e28ee8101e9ba02b34"
+    },
+    "email": "matrichter@uos.de",
+    "root": "C:/Users/matsl/Documents/shape-adaptor",
+    "host": "X17R2",
+    "username": "matsl",
+    "executable": "C:\\Users\\matsl\\anaconda3\\python.exe"
+}

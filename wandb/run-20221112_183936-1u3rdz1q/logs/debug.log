@@ -1,0 +1,27 @@
+2022-11-12 18:39:36,583 INFO    MainThread:28200 [wandb_setup.py:_flush():68] Configure stats pid to 28200
+2022-11-12 18:39:36,583 INFO    MainThread:28200 [wandb_setup.py:_flush():68] Loading settings from C:\Users\matsl\.config\wandb\settings
+2022-11-12 18:39:36,583 INFO    MainThread:28200 [wandb_setup.py:_flush():68] Loading settings from C:\Users\matsl\Documents\shape-adaptor\wandb\settings
+2022-11-12 18:39:36,583 INFO    MainThread:28200 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'model_training.py', 'program': 'C:\\Users\\matsl\\Documents\\shape-adaptor\\model_training.py'}
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_setup.py:_flush():68] Applying login settings: {'api_key': '***REDACTED***'}
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_setup.py:_flush():68] Applying login settings: {'api_key': '***REDACTED***'}
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_init.py:_log_setup():476] Logging user logs to C:\Users\matsl\Documents\shape-adaptor\wandb\run-20221112_183936-1u3rdz1q\logs\debug.log
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_init.py:_log_setup():477] Logging internal logs to C:\Users\matsl\Documents\shape-adaptor\wandb\run-20221112_183936-1u3rdz1q\logs\debug-internal.log
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_init.py:init():516] calling init triggers
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_init.py:init():519] wandb.init called with sweep_config: {}
+config: {'gpu': 0, 'dataset': 'cifar100', 'mode': 'human-cifar', 'network': 'better_resnet', 'sa_num': None, 'lr': 0.1, 'id': 0, 'input_dim': 32, 'output_dim': 8, 'limit_dim': 999, 'step': 20, 'batch_size': 128, 'epochs': 200, 'width_mult': 1.0}
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_init.py:init():569] starting backend
+2022-11-12 18:39:36,584 INFO    MainThread:28200 [wandb_init.py:init():573] setting up manager
+2022-11-12 18:39:36,589 INFO    MainThread:28200 [backend.py:_multiprocessing_setup():102] multiprocessing start_methods=spawn, using: spawn
+2022-11-12 18:39:36,593 INFO    MainThread:28200 [wandb_init.py:init():580] backend started and connected
+2022-11-12 18:39:36,594 INFO    MainThread:28200 [wandb_init.py:init():658] updated telemetry
+2022-11-12 18:39:36,622 INFO    MainThread:28200 [wandb_init.py:init():692] communicating run to backend with 30 second timeout
+2022-11-12 18:39:36,860 INFO    MainThread:28200 [wandb_run.py:_on_init():1974] communicating current version
+2022-11-12 18:39:36,925 INFO    MainThread:28200 [wandb_run.py:_on_init():1978] got version response upgrade_message: "wandb version 0.13.5 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-11-12 18:39:36,925 INFO    MainThread:28200 [wandb_init.py:init():727] starting run threads in backend
+2022-11-12 18:39:41,949 INFO    MainThread:28200 [wandb_run.py:_console_start():1954] atexit reg
+2022-11-12 18:39:41,950 INFO    MainThread:28200 [wandb_run.py:_redirect():1812] redirect: SettingsConsole.WRAP_RAW
+2022-11-12 18:39:41,950 INFO    MainThread:28200 [wandb_run.py:_redirect():1877] Wrapping output streams.
+2022-11-12 18:39:41,950 INFO    MainThread:28200 [wandb_run.py:_redirect():1899] Redirects installed.
+2022-11-12 18:39:41,950 INFO    MainThread:28200 [wandb_init.py:init():764] run started, returning control to user process

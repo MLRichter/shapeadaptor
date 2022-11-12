@@ -1,0 +1,70 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.3
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.12
+    start_time: 1668296376.593632
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      2:
+      - 1
+      - 41
+      - 55
+      3:
+      - 16
+      - 23
+      4: 3.9.12
+      5: 0.13.3
+      8:
+      - 3
+      - 5
+batch_size:
+  desc: null
+  value: 128
+dataset:
+  desc: null
+  value: cifar100
+epochs:
+  desc: null
+  value: 200
+gpu:
+  desc: null
+  value: 0
+id:
+  desc: null
+  value: 0
+input_dim:
+  desc: null
+  value: 32
+limit_dim:
+  desc: null
+  value: 999
+lr:
+  desc: null
+  value: 0.1
+mode:
+  desc: null
+  value: human-cifar
+network:
+  desc: null
+  value: better_resnet
+output_dim:
+  desc: null
+  value: 8
+sa_num:
+  desc: null
+  value: null
+step:
+  desc: null
+  value: 20
+width_mult:
+  desc: null
+  value: 1.0
