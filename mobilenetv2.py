@@ -339,79 +339,6 @@ class MobileNet_V2_Weights(WeightsEnum):
 
 
 
-@register_model
-@handle_legacy_interface(weights=("pretrained", MobileNet_V2_Weights.IMAGENET1K_V1))
-def mobilenet_v2(
-    *, weights: Optional[MobileNet_V2_Weights] = None, progress: bool = True, **kwargs: Any
-) -> MobileNetV2:
-    """MobileNetV2 architecture from the `MobileNetV2: Inverted Residuals and Linear
-    Bottlenecks <https://arxiv.org/abs/1801.04381>`_ paper.
-
-    Args:
-        weights (:class:`~torchvision.models.MobileNet_V2_Weights`, optional): The
-            pretrained weights to use. See
-            :class:`~torchvision.models.MobileNet_V2_Weights` below for
-            more details, and possible values. By default, no pre-trained
-            weights are used.
-        progress (bool, optional): If True, displays a progress bar of the
-            download to stderr. Default is True.
-        **kwargs: parameters passed to the ``torchvision.models.mobilenetv2.MobileNetV2``
-            base class. Please refer to the `source code
-            <https://github.com/pytorch/vision/blob/main/torchvision/models/mobilenetv2.py>`_
-            for more details about this class.
-
-    .. autoclass:: torchvision.models.MobileNet_V2_Weights
-        :members:
-    """
-    weights = MobileNet_V2_Weights.verify(weights)
-
-    if weights is not None:
-        _ovewrite_named_param(kwargs, "num_classes", len(weights.meta["categories"]))
-
-    model = MobileNetV2(**kwargs)
-
-    if weights is not None:
-        model.load_state_dict(weights.get_state_dict(progress=progress))
-
-    return model
-
-
-@register_model
-@handle_legacy_interface(weights=("pretrained", MobileNet_V2_Weights.IMAGENET1K_V1))
-def better_mobilenet_v2(
-    *, weights: Optional[MobileNet_V2_Weights] = None, progress: bool = True, **kwargs: Any
-) -> MobileNetV2:
-    """MobileNetV2 architecture from the `MobileNetV2: Inverted Residuals and Linear
-    Bottlenecks <https://arxiv.org/abs/1801.04381>`_ paper.
-
-    Args:
-        weights (:class:`~torchvision.models.MobileNet_V2_Weights`, optional): The
-            pretrained weights to use. See
-            :class:`~torchvision.models.MobileNet_V2_Weights` below for
-            more details, and possible values. By default, no pre-trained
-            weights are used.
-        progress (bool, optional): If True, displays a progress bar of the
-            download to stderr. Default is True.
-        **kwargs: parameters passed to the ``torchvision.models.mobilenetv2.MobileNetV2``
-            base class. Please refer to the `source code
-            <https://github.com/pytorch/vision/blob/main/torchvision/models/mobilenetv2.py>`_
-            for more details about this class.
-
-    .. autoclass:: torchvision.models.MobileNet_V2_Weights
-        :members:
-    """
-    weights = MobileNet_V2_Weights.verify(weights)
-
-    if weights is not None:
-        _ovewrite_named_param(kwargs, "num_classes", len(weights.meta["categories"]))
-
-    model = BetterMobileNetV2(**kwargs)
-
-    if weights is not None:
-        model.load_state_dict(weights.get_state_dict(progress=progress))
-
-    return model
-
 
 # The dictionary below is internal implementation detail and will be removed in v0.15
 from torchvision.models._utils import _ModelURLs
@@ -422,13 +349,3 @@ model_urls = _ModelURLs(
         "mobilenet_v2": MobileNet_V2_Weights.IMAGENET1K_V1.url,
     }
 )
-
-if __name__=='__main__':
-    from rfa_toolbox import create_graph_from_pytorch_model, visualize_architecture, input_resolution_range
-    import torch
-    model = better_mobilenet_v2() # replace with any torch module-object-returning function
-    graph = create_graph_from_pytorch_model(model, input_res=(1, 3, 224, 224))
-    flops = FlopCountAnalysis(model, torch.ones(1, 3, 224, 224)).total()
-    imin, _ = input_resolution_range(graph)
-    n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print('Imin:', imin, '\tGFLOPS:', flops / 1000000000, "MParams:", n_parameters / 1000000)
