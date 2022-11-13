@@ -16,6 +16,24 @@ import os
 import time
 import wandb
 
+CLASS_NB = {'cifar10':  10,
+       'cifar100':  100,
+       'svhn':      10,
+       'ucf101':    101,
+       'aircraft':  100,
+       'omniglot': 1623,
+       'dtd':  47,
+       'imagenet': 1000,
+       'vgg-flowers': 102,
+       'nyuv2': 13,
+       'cityscapes': 19,
+       'cub_200': 200,
+       'stanford-cars': 196,
+       'wikiart': 195,
+       'sketches':250,
+}
+
+
 os.environ['KMP_DUPLICATE_LIB_OK'] ='True'
 parser = argparse.ArgumentParser(description='Shape Adaptor standard and AutoSC mode training for single GPU')
 parser.add_argument('--gpu', default=0, type=int)
@@ -112,8 +130,9 @@ elif args.network == 'mobilenetv2':
     model = MobileNetV2(sa_num=args.sa_num, dataset=args.dataset, mode=args.mode,
                         input_shape=args.input_dim, output_shape=args.output_dim, width_mult=args.width_mult).to(device)
 elif args.network == 'better_mobilenetv2':
-    model = MobileNetV2(sa_num=args.sa_num, dataset=args.dataset, mode=args.mode,
-                        input_shape=args.input_dim, output_shape=args.output_dim, width_mult=args.width_mult, better=True).to(device)
+    from mobilenetv2 import BetterMobileNetV2
+    model = BetterMobileNetV2(num_classes=CLASS_NB[args.dataset]).to(device)
+    print(model)
 
 
 # define individual parameter lists for network shape and network weight
