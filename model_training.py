@@ -118,6 +118,10 @@ if args.network == 'vgg':
     model = VGG(type='D', sa_num=args.sa_num,
                 dataset=args.dataset, mode=args.mode,
                 input_shape=args.input_dim, output_shape=args.output_dim).to(device)
+if args.network == 'better_vgg':
+    model = VGG(type='D2', sa_num=args.sa_num,
+                dataset=args.dataset, mode=args.mode,
+                input_shape=args.input_dim, output_shape=args.output_dim).to(device)
 elif args.network == 'resnet':
     model = ResNet(Bottleneck, [3, 4, 6, 3], sa_num=args.sa_num,
                    dataset=args.dataset, mode=args.mode,
