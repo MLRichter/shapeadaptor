@@ -305,6 +305,7 @@ class BetterMobileNetV2(nn.Module):
         """
         super().__init__()
         self.num_classes = num_classes
+        self.shape_list = [32, 32, 16, 16, 16, 8, 8]
 
 
         if block is None:
