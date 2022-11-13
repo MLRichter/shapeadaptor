@@ -56,10 +56,6 @@ class ConvNormActivation(torch.nn.Sequential):
         _log_api_usage_once(self)
         self.out_channels = out_channels
 
-        if self.__class__ == ConvNormActivation:
-            warnings.warn(
-                "Don't use ConvNormActivation directly, please use Conv2dNormActivation and Conv3dNormActivation instead."
-            )
 
 
 class Conv2dNormActivation(ConvNormActivation):
@@ -396,53 +392,4 @@ _COMMON_META = {
 
 
 
-class MobileNet_V2_Weights(WeightsEnum):
-    IMAGENET1K_V1 = Weights(
-        url="https://download.pytorch.org/models/mobilenet_v2-b0353104.pth",
-        transforms=partial(ImageClassification, crop_size=224),
-        meta={
-            **_COMMON_META,
-            "recipe": "https://github.com/pytorch/vision/tree/main/references/classification#mobilenetv2",
-            "_metrics": {
-                "ImageNet-1K": {
-                    "acc@1": 71.878,
-                    "acc@5": 90.286,
-                }
-            },
-            "_docs": """These weights reproduce closely the results of the paper using a simple training recipe.""",
-        },
-    )
-    IMAGENET1K_V2 = Weights(
-        url="https://download.pytorch.org/models/mobilenet_v2-7ebf99e0.pth",
-        transforms=partial(ImageClassification, crop_size=224, resize_size=232),
-        meta={
-            **_COMMON_META,
-            "recipe": "https://github.com/pytorch/vision/issues/3995#new-recipe-with-reg-tuning",
-            "_metrics": {
-                "ImageNet-1K": {
-                    "acc@1": 72.154,
-                    "acc@5": 90.822,
-                }
-            },
-            "_docs": """
-                These weights improve upon the results of the original paper by using a modified version of TorchVision's
-                `new training recipe
-                <https://pytorch.org/blog/how-to-train-state-of-the-art-models-using-torchvision-latest-primitives/>`_.
-            """,
-        },
-    )
-    DEFAULT = IMAGENET1K_V2
 
-
-
-
-
-# The dictionary below is internal implementation detail and will be removed in v0.15
-from torchvision.models._utils import _ModelURLs
-
-
-model_urls = _ModelURLs(
-    {
-        "mobilenet_v2": MobileNet_V2_Weights.IMAGENET1K_V1.url,
-    }
-)
