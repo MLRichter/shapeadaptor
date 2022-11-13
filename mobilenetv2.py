@@ -3,8 +3,6 @@ from typing import Any, Callable, List, Optional
 import torch
 from torch import nn, Tensor
 
-from torchvision.utils import _log_api_usage_once
-from torchvision.models._meta import _IMAGENET_CATEGORIES
 from torchvision.models._utils import _make_divisible
 
 
@@ -50,7 +48,6 @@ class ConvNormActivation(torch.nn.Sequential):
             params = {} if inplace is None else {"inplace": inplace}
             layers.append(activation_layer(**params))
         super().__init__(*layers)
-        _log_api_usage_once(self)
         self.out_channels = out_channels
 
 
@@ -183,7 +180,6 @@ class MobileNetV2(nn.Module):
 
         """
         super().__init__()
-        _log_api_usage_once(self)
         self.num_classes = num_classes
 
         if block is None:
@@ -297,7 +293,6 @@ class BetterMobileNetV2(nn.Module):
         super().__init__()
         self.num_classes = num_classes
 
-        _log_api_usage_once(self)
 
         if block is None:
             block = InvertedResidual
@@ -384,7 +379,7 @@ class BetterMobileNetV2(nn.Module):
 _COMMON_META = {
     "num_params": 3504872,
     "min_size": (1, 1),
-    "categories": _IMAGENET_CATEGORIES,
+    "categories": 10000,
 }
 
 
