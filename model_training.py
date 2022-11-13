@@ -86,12 +86,12 @@ else:
     train_loader = torch.utils.data.DataLoader(
         dataset=dset.ImageFolder('dataset/{:s}/train'.format(args.dataset), transform=trans_train),
         batch_size=batch_size,
-        shuffle=True)
+        shuffle=True, num_workers=6, pin_memory=True)
 
     test_loader = torch.utils.data.DataLoader(
         dataset=dset.ImageFolder('dataset/{:s}/test'.format(args.dataset), transform=trans_test),
         batch_size=batch_size,
-        shuffle=False)
+        shuffle=False, num_workers=6, pin_memory=True)
 
 
 # define network
