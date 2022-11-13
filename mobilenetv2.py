@@ -2,8 +2,6 @@ from functools import partial
 from typing import Any, Callable, List, Optional
 
 import torch
-from fvcore.nn import FlopCountAnalysis
-from timm.models import register_model
 from torch import nn, Tensor
 
 from torchvision.ops.misc import Conv2dNormActivation
