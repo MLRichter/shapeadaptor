@@ -1,14 +1,11 @@
-from functools import partial
 from typing import Any, Callable, List, Optional
 
 import torch
 from torch import nn, Tensor
 
-from torchvision.transforms._presets import ImageClassification
 from torchvision.utils import _log_api_usage_once
-from torchvision.models._api import Weights, WeightsEnum
 from torchvision.models._meta import _IMAGENET_CATEGORIES
-from torchvision.models._utils import _make_divisible, _ovewrite_named_param, handle_legacy_interface
+from torchvision.models._utils import _make_divisible
 
 
 class ConvNormActivation(torch.nn.Sequential):
