@@ -635,7 +635,7 @@ class InvertedResidual(nn.Module):
 
 class MobileNetV2(nn.Module):
     def __init__(self, dataset=None, width_mult=1.0, inverted_residual_setting=None, round_nearest=8, mode=None,
-                 input_shape=32, output_shape=16, sa_num=None):
+                 input_shape=32, output_shape=16, sa_num=None, better=False):
         """
         MobileNet V2 main class
         Args:
@@ -663,6 +663,17 @@ class MobileNetV2(nn.Module):
                 [6, 24, 2, 2] if self.input_shape > 64 else [6, 24, 2, 1],
                 [6, 32, 3, 2],
                 [6, 64, 4, 2],
+                [6, 96, 3, 1],
+                [6, 160, 3, 2],
+                [6, 320, 1, 1],
+            ]
+        if better:
+            inverted_residual_setting = [
+                # t, c, n, s
+                [1, 16, 1, 1],
+                [6, 24, 2, 1],
+                [6, 32, 3, 2],
+                [6, 64, 4, 1],
                 [6, 96, 3, 1],
                 [6, 160, 3, 2],
                 [6, 320, 1, 1],

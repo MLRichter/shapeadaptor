@@ -111,6 +111,9 @@ elif args.network == 'better_resnet':
 elif args.network == 'mobilenetv2':
     model = MobileNetV2(sa_num=args.sa_num, dataset=args.dataset, mode=args.mode,
                         input_shape=args.input_dim, output_shape=args.output_dim, width_mult=args.width_mult).to(device)
+elif args.network == 'better_mobilenetv2':
+    model = MobileNetV2(sa_num=args.sa_num, dataset=args.dataset, mode=args.mode,
+                        input_shape=args.input_dim, output_shape=args.output_dim, width_mult=args.width_mult, better=True).to(device)
 
 
 # define individual parameter lists for network shape and network weight
