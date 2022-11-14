@@ -674,7 +674,7 @@ class MobileNetV2(nn.Module):
                 # t, c, n, s
                 [1, 16, 1, 1],
                 [6, 24, 2, 1],
-                [6, 32, 3, 2],
+                [6, 32, 3, 1],
                 [6, 64, 4, 1],
                 [6, 96, 3, 1],
                 [6, 160, 3, 2],
@@ -822,7 +822,7 @@ class MobileNetV2(nn.Module):
 
 if __name__ == '__main__':
     from rfa_toolbox import input_resolution_range, create_graph_from_pytorch_model
-    model = VGG(better=True, mode="cifar-human", dataset="cifar100", type="D3")#ResNet(Bottleneck, [3, 4, 6, 3], strides=[1, 1, 2, 1], sa_num=None,
+    model = MobileNetV2(mode="cifar-human", dataset="cifar100", better=True)#ResNet(Bottleneck, [3, 4, 6, 3], strides=[1, 1, 2, 1], sa_num=None,
             #       dataset="cifar100", mode="human-cifar",
             #       input_shape=32, output_shape=8)
     graph = create_graph_from_pytorch_model(model, input_res=(1, 3, 32, 32))
