@@ -94,12 +94,12 @@ if args.dataset in ['cifar10', 'cifar100', 'svhn']:
     train_loader = torch.utils.data.DataLoader(
         dataset=train_set,
         batch_size=batch_size,
-        shuffle=True)
+        shuffle=True, num_workers=6, pin_memory=True)
 
     test_loader = torch.utils.data.DataLoader(
         dataset=test_set,
         batch_size=batch_size,
-        shuffle=False)
+        shuffle=False, num_workers=6, pin_memory=True)
 else:
     train_loader = torch.utils.data.DataLoader(
         dataset=dset.ImageFolder('dataset/{:s}/train'.format(args.dataset), transform=trans_train),
