@@ -119,7 +119,7 @@ if args.network == 'vgg':
                 dataset=args.dataset, mode=args.mode,
                 input_shape=args.input_dim, output_shape=args.output_dim).to(device)
 if args.network == 'better_vgg':
-    model = VGG(type='D2', sa_num=args.sa_num,
+    model = VGG(type='D3', sa_num=args.sa_num,
                 dataset=args.dataset, mode=args.mode,
                 input_shape=args.input_dim, output_shape=args.output_dim).to(device)
 elif args.network == 'resnet':
