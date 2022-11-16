@@ -137,9 +137,9 @@ if __name__ == '__main__':
                             input_shape=args.input_dim, output_shape=args.output_dim, width_mult=args.width_mult).to(device)
     elif args.network == 'better_mobilenetv2':
         from mobilenetv2 import BetterMobileNetV2
-        model = MobileNetV2(sa_num=args.sa_num, dataset=args.dataset, mode=args.mode, better=True,
-                            input_shape=args.input_dim, output_shape=args.output_dim, width_mult=args.width_mult).to(device)
-        #model = BetterMobileNetV2(num_classes=CLASS_NB[args.dataset]).to(device)
+        #model = MobileNetV2(sa_num=args.sa_num, dataset=args.dataset, mode=args.mode, better=True,
+         #                   input_shape=args.input_dim, output_shape=args.output_dim, width_mult=args.width_mult).to(device)
+        model = BetterMobileNetV2(num_classes=CLASS_NB[args.dataset]).to(device)
         print(model)
 
 
